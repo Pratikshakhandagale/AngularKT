@@ -1,0 +1,43 @@
+Sum of two number -  {{sum}}
+
+<button (click)="getUser()">User List</button>
+<br />
+<div>
+  <h3><br />
+Name : <input type="text" [(ngModel)]="name" /><br />
+Job : <input type="text" [(ngModel)]="job"/> <br />
+<button (click)="postData()">Post User Details</button><br />
+<button (click)="updateUser()">Update User Details</button><br />
+
+
+</h3>
+</div>
+
+<br />
+<div class="row">
+  <div class="column">
+    <div *ngFor="let user of users ">
+      <ul (click)="getProfile(user?.id)">
+        <li><img src="{{user?.avatar}}"></li>
+        <li>{{user.email}}</li>
+        <li>{{user.first_name}}</li>
+        <li>{{user.last_name}}</li>
+        <li> <button (click)="deleteUser(user?.id)"> delete user</button></li>
+        
+      </ul>
+    </div>
+  </div>
+  <div class="column">
+    <div>
+      <img src="{{profile?.avatar}}">
+      <h3>{{profile?.first_name}} {{profile?.last_name}}</h3>
+      <p>{{profile?.email}}</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<router-outlet></router-outlet>
